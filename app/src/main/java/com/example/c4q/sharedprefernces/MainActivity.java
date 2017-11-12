@@ -33,24 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         login = getApplicationContext().getSharedPreferences(SHARED_PREFS_KEY, MODE_PRIVATE);
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences.Editor editor = login.edit();
-                if (checkBox.isChecked()) {
-                    editor.putString("username", username.getText().toString());// if its true u run the code
-                    editor.putString("password", password.getText().toString());
-                    editor.putBoolean("isChecked", checkBox.isChecked());//set its value to whether its checked or note
-                    editor.commit();// if its true you add its value knowing it was checked before.
-                } else {
-                    editor.putBoolean("isChecked", checkBox.isChecked());
-                    editor.commit();
-                }
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("currentUser", username.getText().toString());//this send this "I will call it stuff" to the other activity
-                startActivity(intent);
-            }
-        });
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //We just modified the submit button.
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this,RegisterActivity.class);
+                intent.putExtra("testKey",SHARED_PREFS_KEY);
+                startActivity(intent);
+            }
+        });
     }
 }
 /*
