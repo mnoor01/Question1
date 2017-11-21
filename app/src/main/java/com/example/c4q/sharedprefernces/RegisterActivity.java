@@ -28,11 +28,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         registerPrefs = getApplicationContext().getSharedPreferences(intent.getStringExtra("testKey"), MODE_PRIVATE);
-
+// So we name the sharedpreference, since in here we are getting save things from another activity in the name part
+//I will put intent.getStringExtra("name of the intent we put in the other activity")
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = registerPrefs.edit();
+                SharedPreferences.Editor editor = registerPrefs.edit();//A good way to remember is that the editor does most of the work
+                //so with the Editor we are able to make changes to the data we recieved.
                 if (userName.getText() != null &&
                         password.getText() != null &&
                         confirmPassword.getText() != null &&

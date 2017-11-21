@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences.Editor editor = login.edit();
                 if (checkBox.isChecked()) {
-                    editor.putString("username", username.getText().toString());
+                    editor.putString("username", username.getText().toString());//
                     editor.putString("password", password.getText().toString());
                     editor.putBoolean("isChecked", checkBox.isChecked());
                     editor.commit();
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String checkUser = "user" + username.getText().toString();
                 String checkPassword = "password" + username.getText().toString();
-
+//use th sheredpreference.whatever to  save the date
                 if (username.getText().toString().equalsIgnoreCase(login.getString(checkUser, null))
                         && password.getText().toString().equals(login.getString(checkPassword, null))) {
                     Toast.makeText(getApplicationContext(),"AuthenticationSuccessful",Toast.LENGTH_SHORT).show();
